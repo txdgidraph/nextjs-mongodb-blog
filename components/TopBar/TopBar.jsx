@@ -21,7 +21,7 @@ export const TopBar = () => {
         <div className="topCenter">
           <ul className="topList">
             <li className="topListItem">
-              <Link href="/#" className="topMenuLink">
+              <Link href="/" className="topMenuLink">
                 HOME
               </Link>
             </li>
@@ -44,7 +44,9 @@ export const TopBar = () => {
           </ul>
         </div>
         <div className="topRight">
-          <img src="assets/user-one.jpeg" alt="" className="topProfilePic" />
+          <Link href="/settings">
+            <img src="assets/user-one.jpeg" alt="" className="topProfilePic" />
+          </Link>
           <i className="topSearchIcon bi bi-search"></i>
         </div>
       </div>
