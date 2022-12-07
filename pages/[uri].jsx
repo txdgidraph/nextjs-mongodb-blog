@@ -8,7 +8,7 @@ export default function SlugPage({ post }) {
   return (
     <div>
       <Head>
-        <title>{post.title}</title>
+        <title>{post && post.title}</title>
         <link rel="icon" href="favicon.ico"></link>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />

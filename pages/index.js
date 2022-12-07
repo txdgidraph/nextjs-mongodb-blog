@@ -3,6 +3,7 @@ import TopBar from "../components/TopBar/TopBar";
 import Header from "../components/header/header";
 import Posts from "../components/posts";
 import SideBar from "../components/sidebar";
+import JustInSection from "../components/just-in-posts-section";
 export default function Home() {
   return (
     <div>
@@ -23,6 +24,7 @@ export default function Home() {
       </Head>
       <TopBar />
       <Header />
+      <JustInSection/>
       <div className="container-fluid">
         <div className="row">
           <div className="col-sm-12 col-md-9">

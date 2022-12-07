@@ -13,40 +13,57 @@ export const TopBar = () => {
       </Head>
       <div className="top">
         <div className="topLeft">
-          <i className=" topIcons bi bi-facebook"></i>
-          <i className=" topIcons bi bi-twitter"></i>
-          <i className=" topIcons bi bi-instagram"></i>
-          <i className=" topIcons bi bi-google"></i>
+          <Link href="/">
+            <img
+              src="/assets/cybermatta-logo.png"
+              alt=""
+              className="site-logo"
+            />
+          </Link>
         </div>
         <div className="topCenter">
           <ul className="topList">
-            <li className="topListItem">
+            {/* <li className="topListItem">
               <Link href="/" className="topMenuLink">
                 HOME
               </Link>
-            </li>
+            </li> */}
             <li className="topListItem">
-              <Link href="/about-us" className="topMenuLink">
-                ABOUT
+              <Link href="/tech-news" className="topMenuLink">
+                TECH NEWS
               </Link>
             </li>
             <li className="topListItem">
-              <Link href="contact-us" className="topMenuLink">
-                CONTACT
+              <Link href="/events" className="topMenuLink">
+                EVENTS
               </Link>
             </li>
             <li className="topListItem">
-              <Link href="write" className="topMenuLink">
-                WRITE
+              <Link href="/startups" className="topMenuLink">
+                STARTUPS
               </Link>
             </li>
-            <li className="topListItem">LOGOUT</li>
+            <li className="topListItem">
+              <Link href="/how-to" className="topMenuLink">
+                HOW TO's
+              </Link>
+            </li>
+            <li className="topListItem">
+              <Link href="/podcasts" className="topMenuLink">
+                PODCASTS
+              </Link>
+            </li>
+            <li className="topListItem">
+              <Link href="/gadgets-appliances" className="topMenuLink">
+                GADGETS & APPLIANCES
+              </Link>
+            </li>
           </ul>
         </div>
         <div className="topRight">
-          <Link href="/settings">
+          {/* <Link href="/settings">
             <img src="assets/user-one.jpeg" alt="" className="topProfilePic" />
-          </Link>
+          </Link> */}
           <i className="topSearchIcon bi bi-search"></i>
         </div>
       </div>

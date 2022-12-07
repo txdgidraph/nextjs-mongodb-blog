@@ -1,13 +1,13 @@
 import React from "react";
 
-const SettingsPage = () => {
+const Startups = () => {
   return (
     <div>
       <div className="setting-cont">
-        <h1>Settings Page</h1>
+        <h1>Startups</h1>
       </div>
     </div>
   );
 };
 
-export default SettingsPage;
+export default Startups;
