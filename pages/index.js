@@ -4,6 +4,7 @@ import Header from "../components/header/header";
 import Posts from "../components/posts";
 import SideBar from "../components/sidebar";
 import JustInSection from "../components/just-in-posts-section";
+import TrendingNewsSection from "../components/trending-news-section";
 export default function Home() {
   return (
     <div>
@@ -25,7 +26,8 @@ export default function Home() {
       <TopBar />
       <Header />
       <JustInSection/>
-      <div className="container-fluid">
+      <TrendingNewsSection/>
+      {/* <div className="container-fluid">
         <div className="row">
           <div className="col-sm-12 col-md-9">
             <Posts />
@@ -34,7 +36,7 @@ export default function Home() {
             <SideBar />
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
