@@ -21,7 +21,7 @@ const Header = () => {
       </div>
       <div className="header-events-cont">
         <div className="header-events-title">
-          <span>Upcoming Events</span>
+          <span>Upcoming Tech Events</span>
         </div>
         <div className="container-fluid ">
           <div className="row">

@@ -48,14 +48,20 @@ export const TopBar = () => {
                 HOW TO's
               </Link>
             </li>
+            
             <li className="topListItem">
-              <Link href="/podcasts" className="topMenuLink">
-                PODCASTS
+              <Link href="/gadgets-appliances" className="topMenuLink">
+                GADGETS & APPLIANCES
               </Link>
             </li>
             <li className="topListItem">
               <Link href="/gadgets-appliances" className="topMenuLink">
-                GADGETS & APPLIANCES
+                LEARN
+              </Link>
+            </li>
+            <li className="topListItem">
+              <Link href="/gadgets-appliances" className="topMenuLink">
+                SHOP
               </Link>
             </li>
           </ul>

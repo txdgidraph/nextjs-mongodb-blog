@@ -43,7 +43,7 @@ export async function getStaticProps(){
   // Paste your GraphQL query inside of a gql tagged template literal
   const GET_POSTS = gql`
   query AllPostsQuery {
-    posts {
+    posts(first: 50) {
       nodes {
         title
         content
@@ -52,6 +52,11 @@ export async function getStaticProps(){
         featuredImage {
           node {
             mediaItemUrl
+          }
+        }
+        categories {
+          nodes {
+            name
           }
         }
       }

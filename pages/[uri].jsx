@@ -84,7 +84,6 @@ export default function SlugPage({ post }) {
           </div>
         </div>
       </main>
-
       <Footer></Footer>
     </div>
   );
