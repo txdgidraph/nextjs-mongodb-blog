@@ -217,7 +217,7 @@ const TrendingNews = () => {
 
             <Grid item xs={12} sm={4} md={4}>
               <div className="trendnews-sec-title-cont">
-                <h5 style={{ color: "#555" }}>This Week's</h5>
+                <h5 style={{ color: "#555" }}>This Week`&apos;`s</h5>
                 <span className="trendnews-sec-title-title">
                   Leading Activities
                 </span>

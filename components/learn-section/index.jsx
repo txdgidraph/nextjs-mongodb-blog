@@ -51,9 +51,9 @@ const LearnSection = () => {
       <div className="container-fluid">
         <div className="row">
           {learnSectionPostObjects &&
-            learnSectionPostObjects.map((item) => {
+            learnSectionPostObjects.map((item, index) => {
               return (
-                <div className="col-md-3 col-sm-12">
+                <div className="col-md-3 col-sm-12" key={index}>
                   <div className="TrendNewsSec-Col-1-cont">
                     <Link href={item.uri}>
                       <img
