@@ -5,6 +5,7 @@ import { gql } from "@apollo/client";
 import { useState, useEffect } from "react";
 import DatePublished from "../published-date";
 import PostCategory from "../return-post-category";
+import Link from "next/link";
 
 const TechBytesObjects = [
   {
@@ -27,11 +28,11 @@ const TechBytesObjects = [
     featuredTitle: "8 Individuals who defined the Global Tech Space in 2022",
     byteDate: "December 21, 2022",
   },
-  {
-    featuredImage: "https://technext.ng/wp-content/uploads/2022/12/SBFCZ.png",
-    featuredTitle: "8 Individuals who defined the Global Tech Space in 2022",
-    byteDate: "December 21, 2022",
-  },
+  // {
+  //   featuredImage: "https://technext.ng/wp-content/uploads/2022/12/SBFCZ.png",
+  //   featuredTitle: "8 Individuals who defined the Global Tech Space in 2022",
+  //   byteDate: "December 21, 2022",
+  // },
 ];
 
 const trendNewsTopSection = (postsObjects) => {
@@ -46,17 +47,26 @@ const trendNewsTopSection = (postsObjects) => {
             return (
               <Grid item sm={12} md={6} key={index}>
                 <div className="trendnews-topsec-postdetails-cont">
-                  <img
-                    src={item.featuredImage.node.mediaItemUrl}
-                    alt=""
-                    className="trendnews-topsec-featuredimage"
-                  />
+                  <Link href={item.uri}>
+                    <img
+                      src={item.featuredImage.node.mediaItemUrl}
+                      alt={item.title}
+                      className="trendnews-topsec-featuredimage"
+                    />
+                  </Link>
                   <div className="trendnews-topsec-post-info">
                     <span className="trendnews-topsec-date-cate">
                       <DatePublished date={item.date} /> |{" "}
                       <PostCategory categoryObject={item.categories.nodes} />
                     </span>
-                    <span className="trendnews-topsec-title">{item.title}</span>
+                    <span className="trendnews-topsec-title">
+                      <Link
+                        href={item.uri}
+                        className="trendnews-topsec-title-link"
+                      >
+                        {item.title}
+                      </Link>
+                    </span>
                     <span className="trendnews-topsec-desc">{item.desc}</span>
                   </div>
                 </div>
@@ -79,11 +89,13 @@ const trendNewsHeadlineSection = (postsObjects) => {
                 <div>
                   <div className="trendnews-headlsec-postdetails">
                     <div className="trendnews-headlsec-img-cont">
-                      <img
-                        src={item.featuredImage.node.mediaItemUrl}
-                        alt=""
-                        className="trendnews-headlsec-img"
-                      />
+                      <Link href={item.uri}>
+                        <img
+                          src={item.featuredImage.node.mediaItemUrl}
+                          alt={item.title}
+                          className="trendnews-headlsec-img"
+                        />
+                      </Link>
                     </div>
                     <div className="trendnews-headlsec-postinfo-cont">
                       <span className="trendnews-headlsec-date-cate">
@@ -91,7 +103,12 @@ const trendNewsHeadlineSection = (postsObjects) => {
                         <PostCategory categoryObject={item.categories.nodes} />
                       </span>
                       <span className="trendnews-headlsec-title">
-                        {item.title}
+                        <Link
+                          href={item.uri}
+                          className="trendnews-headlsec-title-link"
+                        >
+                          {item.title}
+                        </Link>
                       </span>
                     </div>
                   </div>
@@ -199,8 +216,11 @@ const TrendingNews = () => {
             </Grid>
 
             <Grid item xs={12} sm={4} md={4}>
-              <div className="justin-sec-title-cont">
-                <span className="justin-sec-title-title">Tech Bytes</span>
+              <div className="trendnews-sec-title-cont">
+                <h5 style={{ color: "#555" }}>This Week's</h5>
+                <span className="trendnews-sec-title-title">
+                  Leading Activities
+                </span>
               </div>
               <Grid container>
                 {TechBytesObjects.map((item, index) => {

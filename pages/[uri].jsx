@@ -3,8 +3,8 @@ import Footer from "../components/Footer";
 import { client } from "../lib/apollo";
 import { gql } from "@apollo/client";
 import SideBar from "../components/sidebar";
+
 export default function SlugPage({ post }) {
-  console.log(post);
   return (
     <div>
       <Head>
@@ -128,7 +128,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const paths = ["/post-one"];
+  const paths = ["/what-is-linux-and-why-should-you-care"];
   return {
     paths,
     fallback: "blocking",

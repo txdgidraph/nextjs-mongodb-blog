@@ -4,6 +4,7 @@ import { gql } from "@apollo/client";
 import { useState, useEffect } from "react";
 import DatePublished from "../published-date";
 import renderHTML from "react-render-html";
+import Link from "next/link";
 
 const LearnSection = () => {
   const [fetchedBlogs, setFetchedBlogs] = useState();
@@ -40,9 +41,7 @@ const LearnSection = () => {
     fetchData();
   }, []);
 
-
-  const learnSectionPostObjects =
-    fetchedBlogs && fetchedBlogs.slice(0, 4);
+  const learnSectionPostObjects = fetchedBlogs && fetchedBlogs.slice(0, 4);
 
   return (
     <div>
@@ -56,17 +55,24 @@ const LearnSection = () => {
               return (
                 <div className="col-md-3 col-sm-12">
                   <div className="TrendNewsSec-Col-1-cont">
-                    <img
-                      src={item.featuredImage.node.mediaItemUrl}
-                      alt=""
-                      className="TrendNewsSec-Col-1-img"
-                    />
+                    <Link href={item.uri}>
+                      <img
+                        src={item.featuredImage.node.mediaItemUrl}
+                        alt={item.title}
+                        className="TrendNewsSec-Col-1-img"
+                      />
+                    </Link>
                     <div className="TrendNewsSec-Col-1-post-details">
                       <span className="TrendNewsSec-Col-1-category-date">
                         Tech News - <DatePublished date={item.date} />
                       </span>
                       <span className="TrendNewsSec-Col-1-title">
-                        {item.title}
+                        <Link
+                          href={item.uri}
+                          className="trendnews-headlsec-title-link"
+                        >
+                          {item.title}
+                        </Link>
                       </span>
                       <span className="TrendNewsSec-Col-1-desc">
                         {renderHTML(item.content)}

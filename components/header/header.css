@@ -1,35 +1,7 @@
-.header-image-cont {
-  position: relative;
-  margin-top: 4em;
-  height: 50vh;
-  font-family: "Lora", serif;
-}
-.header-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.header-titles {
-  width: 100%;
-  text-align: center;
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  margin-top: 5em;
-}
-.headerTitleOne {
-  font-size: 2em;
-  margin: 0 0 1em 0;
-  border-width: 5%;
-  color: aliceblue;
-}
-.headerTitleTwo {
-  font-size: 4em;
-  top: 20%;
-  color: aliceblue;
-}
+
 .header-events-cont{
     background-color: #0a192b;
+    padding-top: 4em;
     padding-bottom: 2em;
 }
 .header-events-title{

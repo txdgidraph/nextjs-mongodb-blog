@@ -16,8 +16,12 @@ import Head from "next/head";
 import "../styles/index.css";
 import { ApolloProvider } from "@apollo/client/react";
 import { client } from "../lib/apollo";
+import { ThemeProvider } from "@material-ui/core";
+import { theme } from "../components/theme";
+
 function MyApp({ Component, pageProps }) {
   return (
+    <ThemeProvider theme={theme}>
     <ApolloProvider client={client}>
       <Head>
         <link
@@ -33,6 +37,7 @@ function MyApp({ Component, pageProps }) {
         <Component {...pageProps} />
       </Layout>
     </ApolloProvider>
+    </ThemeProvider>
   );
 }
 

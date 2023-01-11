@@ -1,10 +1,21 @@
-import { Grid } from "@material-ui/core";
+import { Button, Grid, ThemeProvider } from "@material-ui/core";
 import React from "react";
 import { client } from "../../lib/apollo";
 import { gql } from "@apollo/client";
 import { useState, useEffect } from "react";
 import DatePublished from "../published-date";
 import PostCategory from "../return-post-category";
+import Link from "next/link";
+import { theme } from "../theme";
+import { makeStyles } from "@material-ui/core";
+
+const useStyles = makeStyles({
+  justIn_topSectionCol_1_link: {
+    backgroundColor: "white",
+    padding: "1em",
+    color: "#0a182a",
+  },
+});
 
 const JustInSection = () => {
   const [fetchedBlogs, setFetchedBlogs] = useState();
@@ -12,12 +23,13 @@ const JustInSection = () => {
     async function fetchData() {
       const GET_POSTS = gql`
         query AllPostsQuery {
-          posts(first: 50) {
+          posts(first: 10) {
             nodes {
               title
               content
               date
               uri
+              slug
               featuredImage {
                 node {
                   mediaItemUrl
@@ -40,7 +52,6 @@ const JustInSection = () => {
     }
     fetchData();
   }, []);
-
   const getTheFirstSixBlogs = fetchedBlogs && fetchedBlogs.slice(0, 6);
 
   const justIn_topSectionCol_1 =
@@ -49,6 +60,7 @@ const JustInSection = () => {
     getTheFirstSixBlogs && getTheFirstSixBlogs.slice(1, 2);
   const justin_bottomSectionObjects =
     getTheFirstSixBlogs && getTheFirstSixBlogs.slice(2, 6);
+  const classes = useStyles();
 
   return (
     <div>
@@ -59,21 +71,27 @@ const JustInSection = () => {
         {justIn_topSectionCol_1 &&
           justIn_topSectionCol_1.map((item, index) => {
             return (
-              <Grid item md={8} sm={12} key={index} className="justin-column-1-top">
-                  <img
-                    src={item.featuredImage.node.mediaItemUrl}
-                    alt=""
-                    className="justin-column-1-top-img"
-                  />
-                  <div className="justin-column-1-post-details">
+              <Grid
+                item
+                md={8}
+                sm={12}
+                key={index}
+                className="justin-column-1-top"
+              >
+                <img
+                  src={item.featuredImage.node.mediaItemUrl}
+                  alt=""
+                  className="justin-column-1-top-img"
+                />
+                <div className="justin-column-1-post-details">
                     <span className="justin-column-1-top-title">
-                      {item.title}
+                      <Link href={item.uri} className="justin-column-1-top-link">{item.title}</Link>
                     </span>
-                    <span className="justin-column-1-top-details">
-                      <DatePublished date={item.date} /> |{" "}
-                      <PostCategory categoryObject={item.categories.nodes} />
-                    </span>
-                  </div>
+                  <span className="justin-column-1-top-details">
+                    <DatePublished date={item.date} /> |{" "}
+                    <PostCategory categoryObject={item.categories.nodes} />
+                  </span>
+                </div>
               </Grid>
             );
           })}
@@ -91,10 +109,16 @@ const JustInSection = () => {
                     />
                     <div className="justin-column-2-post-details-cont">
                       <div className="justin-column-2-category">
-                      <PostCategory
-                        categoryObject={item.categories.nodes}
-                      /></div>
-                      <div className="justin-column-2-title">{item.title}</div>
+                        <PostCategory categoryObject={item.categories.nodes} />
+                      </div>
+                      <div className="justin-column-2-title">
+                        <Link
+                          href={item.uri}
+                          className="justin-column-2-top-link"
+                        >
+                          {item.title}
+                        </Link>
+                      </div>
                       <div className="justin-column-2-post-details">
                         <DatePublished date={item.date} />
                       </div>
@@ -128,7 +152,7 @@ const JustInSection = () => {
                   />
                   <div className="JustInBottom-col-1-post-details">
                     <div className="JustInBottom-column-1-title">
-                      {item.title}
+                      <Link href={item.uri} className="justinBottom-col-1-link">{item.title}</Link>
                     </div>
                     <div className="JustInBottom-column-1-post-details">
                       <DatePublished date={item.date} /> |{" "}

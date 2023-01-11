@@ -2,7 +2,11 @@ body {
   margin: 0;
   padding: 0;
 }
-
+html,
+body {
+  width: auto !important;
+  overflow-x: hidden !important;
+}
 .justin-sec-title-cont {
   /* width: 100%; */
   display: flex;
@@ -46,13 +50,23 @@ body {
   flex-direction: column;
   position: absolute;
   margin-left: 2em;
+  margin-right: 2em;
   color: white;
   bottom: 1em;
+  background-color: rgb(0, 0, 0, 0.8);
+  padding: 0.5em;
 }
 .justin-column-1-top-title {
   font-family: "Josefin Sans", sans-serif;
   font-size: 26px;
   font-weight: 700;
+}
+.justin-column-1-top-link {
+  color: white;
+  text-decoration: none;
+}
+.justin-column-1-top-link:hover {
+  color: #0e6efd;
 }
 .justin-column-1-top-details {
   font-family: "Josefin Sans", sans-serif;
@@ -87,9 +101,16 @@ body {
 }
 .justin-column-2-title {
   font-family: "Josefin Sans", sans-serif;
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 700;
   margin-top: 1em;
+}
+.justin-column-2-top-link {
+  color: #0b192a;
+  text-decoration: none;
+}
+.justin-column-2-top-link:hover {
+  color: #0e6efd;
 }
 .justin-column-2-post-details {
   font-family: "Josefin Sans", sans-serif;
@@ -135,6 +156,16 @@ body {
   font-weight: 700;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
+}
+.justinBottom-col-1-link{
+color: #0b192a;
+text-decoration: none;
+}
+.justinBottom-col-1-link:hover {
+  color: #0e6efd;
+}
+.linkTags {
+  color: black;
 }
 
 /* Extra small devices (phones, 600px and down) */

@@ -8,7 +8,7 @@ const Header = () => {
       <Head>
        
       </Head>
-      <div className="header-image-cont">
+      {/* <div className="header-image-cont">
         <div className="header-titles">
           <span className="headerTitleOne">Cybermatta Africa</span>
           <span className="headerTitleTwo">One Stop Tech News Blog</span>
@@ -18,7 +18,7 @@ const Header = () => {
           alt="Cybermatta Header Image"
           className="header-img"
         />
-      </div>
+      </div> */}
       <div className="header-events-cont">
         <div className="header-events-title">
           <span>Upcoming Tech Events</span>

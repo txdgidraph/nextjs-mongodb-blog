@@ -1,3 +1,17 @@
+.trendnews-sec-title-cont {
+  /* width: 100%; */
+  display: flex;
+  /* align-items: center; */
+  margin: 3em 0em 2em 1em;
+  color: #0a192c;
+  font-family: "Josefin Sans", sans-serif;
+  flex-direction: column;
+}
+.trendnews-sec-title-title {
+  font-weight: 700;
+  font-size: 2em;
+}
+
 .fullTrendNews-Container{
   margin-right: 1em;
   margin-left: 1em;
@@ -14,10 +28,18 @@
 .trendnews-topsec-title {
   font-family: "Josefin Sans", sans-serif;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 17px;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
+.trendnews-topsec-title-link{
+  color: #0b192a;
+  text-decoration: none;
+}
+.trendnews-topsec-title-link:hover{
+  color: #0e6efd;
+}
+
 .trendnews-topsec-date-cate {
   font-family: "Josefin Sans", sans-serif;
   font-size: 14px;
@@ -55,8 +77,15 @@
 .trendnews-headlsec-title {
   font-family: "Josefin Sans", sans-serif;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 17px;
   margin-top: 0.3em;
+}
+.trendnews-headlsec-title-link{
+  color: #0b192a;
+  text-decoration: none;
+}
+.trendnews-headlsec-title-link:hover{
+  color: #0e6efd;
 }
 .trendnews-headlsec-postinfo-cont {
   display: flex;
