@@ -128,7 +128,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const paths = ["/what-is-linux-and-why-should-you-care"];
+  const paths = [];
   return {
     paths,
     fallback: "blocking",
