@@ -28,6 +28,9 @@ const LearnSection = () => {
                   name
                 }
               }
+              customMetaDescription {
+                metaDescription
+              }
             }
           }
         }
@@ -52,30 +55,31 @@ const LearnSection = () => {
         <div className="row">
           {learnSectionPostObjects &&
             learnSectionPostObjects.map((item, index) => {
+              console.log(item);
               return (
                 <div className="col-md-3 col-sm-12" key={index}>
-                  <div className="TrendNewsSec-Col-1-cont">
+                  <div className="LearnSec-Col-1-cont">
                     <Link href={item.uri}>
                       <img
                         src={item.featuredImage.node.mediaItemUrl}
                         alt={item.title}
-                        className="TrendNewsSec-Col-1-img"
+                        className="LearnSec-Col-1-img"
                       />
                     </Link>
-                    <div className="TrendNewsSec-Col-1-post-details">
-                      <span className="TrendNewsSec-Col-1-category-date">
+                    <div className="LearnSec-Col-1-post-details">
+                      <span className="LearnSec-Col-1-category-date">
                         Tech News - <DatePublished date={item.date} />
                       </span>
-                      <span className="TrendNewsSec-Col-1-title">
+                      <span className="LearnSec-Col-1-title">
                         <Link
                           href={item.uri}
-                          className="trendnews-headlsec-title-link"
+                          className="LearnSec-headlsec-title-link"
                         >
                           {item.title}
                         </Link>
                       </span>
-                      <span className="TrendNewsSec-Col-1-desc">
-                        {renderHTML(item.content)}
+                      <span className="LearnSec-Col-1-desc">
+                        {item.customMetaDescription.metaDescription}
                       </span>
                     </div>
                   </div>
@@ -84,10 +88,10 @@ const LearnSection = () => {
             })}
         </div>
       </div>
-      <div className="TrendNewsSec-Load-More-btn-cont">
-        <div className="TrendNewsSec-button-icon-cont">
+      <div className="LearnSec-Load-More-btn-cont">
+        <div className="LearnSec-button-icon-cont">
           <span>
-            <button className="TrendNewsSec-Load-More-btn">
+            <button className="LearnSec-Load-More-btn">
               Load More Posts
             </button>
           </span>
