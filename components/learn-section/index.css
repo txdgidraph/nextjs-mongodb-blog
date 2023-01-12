@@ -1,4 +1,4 @@
-.TrendNewsSec-title-cont {
+.LearnSec-title-cont {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -6,15 +6,15 @@
   color: #0a192c;
   font-family: "Josefin Sans", sans-serif;
 }
-.TrendNewsSec-title {
+.LearnSec-title {
   font-weight: 700;
   font-size: 2em;
 }
-.TrendNewsSec-title-hr-line-cont {
+.LearnSec-title-hr-line-cont {
   width: 50%;
   margin-left: 1em;
 }
-.TrendNewsSec-title-hr-line {
+.LearnSec-title-hr-line {
   border: 5px solid black;
   opacity: 1;
 }
@@ -30,36 +30,36 @@
   font-family: "Josefin Sans", sans-serif;
 }
 
-.TrendNewsSec-Col-1-cont {
+.LearnSec-Col-1-cont {
   height: 350px;
   border-radius: 10px;
   margin-right: 0.5em;
   margin-left: 0.5em;
 }
-.TrendNewsSec-Col-1-img {
+.LearnSec-Col-1-img {
   height: 150px;
   width: 100%;
   object-fit: cover;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
-.TrendNewsSec-Col-1-post-details {
+.LearnSec-Col-1-post-details {
   display: flex;
   flex-direction: column;
 }
-.TrendNewsSec-Col-1-category-date {
+.LearnSec-Col-1-category-date {
   font-family: "Josefin Sans", sans-serif;
   font-size: 14px;
   margin-top: 0.5em;
 }
-.TrendNewsSec-Col-1-title {
+.LearnSec-Col-1-title {
   font-family: "Josefin Sans", sans-serif;
   font-weight: bold;
   font-size: 1.2em;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
-.TrendNewsSec-Col-1-desc {
+.LearnSec-Col-1-desc {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -71,20 +71,20 @@
   line-height: 24px;
 }
 
-.TrendNewsSec-Load-More-btn-cont {
+.LearnSec-Load-More-btn-cont {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.TrendNewsSec-Load-More-btn {
+.LearnSec-Load-More-btn {
   border: none;
   background: none;
   color: white;
   font-family: "Varela", sans-serif;
 }
-.TrendNewsSec-button-icon-cont {
+.LearnSec-button-icon-cont {
   display: flex;
   justify-content: center;
   background-color: #0a192c;
@@ -93,14 +93,49 @@
   border-radius: 5px;
   cursor: pointer;
 }
-.TrendNewsSec-button-icon-cont:hover {
+.LearnSec-button-icon-cont:hover {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   transform: translateY(-7px);
   transition: all 0.5s ease 0s;
 }
-.TrendNewsSec-button-icon-cont:last-child {
+.LearnSec-button-icon-cont:last-child {
   color: white;
   font-size: 16px;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+.LearnSec-button-icon-cont{
+  width: 75%;
+}
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .LearnSec-button-icon-cont{
+    width: 40%;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .LearnSec-button-icon-cont{
+    width: 40%;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .LearnSec-button-icon-cont{
+    width: 30%;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .LearnSec-button-icon-cont{
+    width: 25%;
+  }
 }

@@ -45,7 +45,7 @@ export const TopBar = () => {
             </li>
             <li className="topListItem">
               <Link href="/how-to" className="topMenuLink">
-                HOW TO`&apos;`,s
+                HOW TO&apos;s
               </Link>
             </li>
             
