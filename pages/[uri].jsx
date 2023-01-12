@@ -5,6 +5,7 @@ import { gql } from "@apollo/client";
 import SideBar from "../components/sidebar";
 
 export default function SlugPage({ post }) {
+  console.log(post);
   return (
     <div>
       <Head>
@@ -22,26 +23,29 @@ export default function SlugPage({ post }) {
           name="robots"
           content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
         />
-        <link rel="canonical" href="https://www.healthmatta.com/?p=126" />
+        <link rel="canonical" href={post.uri} />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="article" />
         <meta property="og:title" content={post.title} />
-        <meta property="og:description" content={post.title} />
-        <meta property="og:url" content="https://www.healthmatta.com/?p=126" />
-        <meta property="og:site_name" content="Healthmatta" />
-        <meta property="article:section" content="Hygiene" />
+        <meta
+          property="og:description"
+          content={post.customMetaDescription.metaDescription}
+        />
+        <meta property="og:url" content={post.uri} />
+        <meta property="og:site_name" content="Cybermatta" />
+        <meta property="article:section" content="Technology" />
         <meta
           property="og:image"
-          content="https://i0.wp.com/www.healthmatta.com/wp-content/uploads/2021/08/featured-image2-min-scaled-e1628524804947.jpg"
+          content={post.featuredImage.node.mediaItemUrl}
         />
         <meta
           property="og:image:secure_url"
-          content="https://i0.wp.com/www.healthmatta.com/wp-content/uploads/2021/08/featured-image2-min-scaled-e1628524804947.jpg"
+          content={post.featuredImage.node.mediaItemUrl}
         />
         <meta property="og:image:width" content="1708" />
         <meta property="og:image:height" content="1401" />
-        <meta property="og:image:alt" content="dental hygiene hacks" />
-        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:alt" content={post.title} />
+        <meta property="og:image:type" content={post.featuredImage.node.mimeType} />
       </Head>
 
       <main>
@@ -96,6 +100,7 @@ export async function getStaticProps({ params }) {
         title
         content
         date
+        uri
         author {
           node {
             firstName
@@ -105,7 +110,19 @@ export async function getStaticProps({ params }) {
         featuredImage {
           node {
             mediaItemUrl
+            fileSize
+            mediaType
+            mimeType
+            sizes
           }
+        }
+        categories {
+          nodes {
+            name
+          }
+        }
+        customMetaDescription {
+          metaDescription
         }
       }
     }
