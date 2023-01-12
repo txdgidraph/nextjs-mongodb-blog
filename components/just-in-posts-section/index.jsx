@@ -65,7 +65,12 @@ const JustInSection = () => {
   return (
     <div>
       <div className="justin-sec-title-cont">
-        <span className="justin-sec-title-title">JUST IN POSTS</span>
+        <i
+          class="fa fa-bar-chart"
+          aria-hidden="true"
+          style={{ color: "#ef5450", fontSize:"2em", marginRight:"0.5em" }}
+        ></i>
+        <span className="justin-sec-title-title"> JUST IN POSTS</span>
       </div>
       <Grid container spacing={2} className="just-in-top-cont">
         {justIn_topSectionCol_1 &&
@@ -84,9 +89,11 @@ const JustInSection = () => {
                   className="justin-column-1-top-img"
                 />
                 <div className="justin-column-1-post-details">
-                    <span className="justin-column-1-top-title">
-                      <Link href={item.uri} className="justin-column-1-top-link">{item.title}</Link>
-                    </span>
+                  <span className="justin-column-1-top-title">
+                    <Link href={item.uri} className="justin-column-1-top-link">
+                      {item.title}
+                    </Link>
+                  </span>
                   <span className="justin-column-1-top-details">
                     <DatePublished date={item.date} /> |{" "}
                     <PostCategory categoryObject={item.categories.nodes} />
@@ -152,7 +159,9 @@ const JustInSection = () => {
                   />
                   <div className="JustInBottom-col-1-post-details">
                     <div className="JustInBottom-column-1-title">
-                      <Link href={item.uri} className="justinBottom-col-1-link">{item.title}</Link>
+                      <Link href={item.uri} className="justinBottom-col-1-link">
+                        {item.title}
+                      </Link>
                     </div>
                     <div className="JustInBottom-column-1-post-details">
                       <DatePublished date={item.date} /> |{" "}

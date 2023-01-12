@@ -21,13 +21,13 @@
 
 .learn-section-title-cont {
   width: 100%;
-  margin: 1em;
+  margin: 1.2em;
 }
 .learn-section-title {
   color: #0a192c;
   font-weight: 700;
-  font-size: 2em;
-  font-family: "Josefin Sans", sans-serif;
+  font-size: 1.5em;
+  /* font-family: "Josefin Sans", sans-serif; */
 }
 
 .LearnSec-Col-1-cont {
@@ -59,6 +59,14 @@
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
+.LearnSec-headlsec-title-link {
+  text-decoration: none;
+  color: #0b192a;
+}
+.LearnSec-headlsec-title-link:hover {
+  color: #0e6efd;
+}
+
 .LearnSec-Col-1-desc {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -107,35 +115,35 @@
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-.LearnSec-button-icon-cont{
-  width: 75%;
-}
+  .LearnSec-button-icon-cont {
+    width: 75%;
+  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-  .LearnSec-button-icon-cont{
+  .LearnSec-button-icon-cont {
     width: 40%;
   }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-  .LearnSec-button-icon-cont{
+  .LearnSec-button-icon-cont {
     width: 40%;
   }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-  .LearnSec-button-icon-cont{
+  .LearnSec-button-icon-cont {
     width: 30%;
   }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-  .LearnSec-button-icon-cont{
+  .LearnSec-button-icon-cont {
     width: 25%;
   }
 }
