@@ -39,7 +39,13 @@ const trendNewsTopSection = (postsObjects) => {
   return (
     <div>
       <div className="justin-sec-title-cont">
-        <span className="justin-sec-title-title">Trending News Section</span>
+        <i
+            class="fa fa-heart"
+            aria-hidden="true"
+            style={{ color: "#ef5450", fontSize:"2em", marginRight:"0.5em" }}
+          ></i><span className="justin-sec-title-title">
+          Trending News Section
+        </span>
       </div>
       <Grid container spacing={2}>
         {postsObjects &&
@@ -217,7 +223,7 @@ const TrendingNews = () => {
 
             <Grid item xs={12} sm={4} md={4}>
               <div className="trendnews-sec-title-cont">
-                <h5 style={{ color: "#555" }}>This Week`&apos;`s</h5>
+                <h5 style={{ color: "#555" }}>This Week&apos;s</h5>
                 <span className="trendnews-sec-title-title">
                   Leading Activities
                 </span>

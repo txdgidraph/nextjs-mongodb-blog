@@ -12,12 +12,14 @@ body {
   display: flex;
   align-items: center;
   margin: 2em 0em 2em 1em;
-  color: #0a192c;
-  font-family: "Josefin Sans", sans-serif;
+  /* color: #0a192c; */
+  color: #0e6efd;
+  /* font-family: "Josefin Sans", sans-serif; */
 }
 .justin-sec-title-title {
   font-weight: 700;
-  font-size: 2em;
+  font-size: 1.5em;
+  border-bottom: 5px solid #ef5450;
 }
 .justin-sec-title-title-hr-line-cont {
   padding-left: 1em;
@@ -157,9 +159,9 @@ body {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
-.justinBottom-col-1-link{
-color: #0b192a;
-text-decoration: none;
+.justinBottom-col-1-link {
+  color: #0b192a;
+  text-decoration: none;
 }
 .justinBottom-col-1-link:hover {
   color: #0e6efd;

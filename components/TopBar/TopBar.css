@@ -65,3 +65,7 @@
     text-decoration: none;
     color: white;
 }
+.topMenuLink:hover{
+    color: #ef534f;
+    text-decoration: underline;
+}

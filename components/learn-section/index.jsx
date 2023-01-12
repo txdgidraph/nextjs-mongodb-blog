@@ -48,8 +48,23 @@ const LearnSection = () => {
 
   return (
     <div>
-      <div className="learn-section-title-cont">
-        <span className="learn-section-title">Learn Section</span>
+      {/* <div className="learn-section-title-cont">
+        <span className="learn-section-title">
+          <i
+            class="fa fa-book"
+            aria-hidden="true"
+            style={{ color: "#ef5450" }}
+          ></i>{" "}
+          Learn Section
+        </span>
+      </div> */}
+      <div className="justin-sec-title-cont">
+        <i
+          class="fa fa-book"
+          aria-hidden="true"
+          style={{ color: "#ef5450", fontSize: "2em", marginRight: "0.5em" }}
+        ></i>{" "}
+        <span className="justin-sec-title-title">Learn Section</span>
       </div>
       <div className="container-fluid">
         <div className="row">
@@ -91,9 +106,7 @@ const LearnSection = () => {
       <div className="LearnSec-Load-More-btn-cont">
         <div className="LearnSec-button-icon-cont">
           <span>
-            <button className="LearnSec-Load-More-btn">
-              Load More Posts
-            </button>
+            <button className="LearnSec-Load-More-btn">Load More Posts</button>
           </span>
           <span>
             <i class="bi bi-arrow-clockwise"></i>
