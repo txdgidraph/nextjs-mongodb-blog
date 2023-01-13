@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
-import ToolBar from "@material-ui/core/ToolBar";
+import Toolbar from "@material-ui/core/ToolBar";
 import Container from "@material-ui/core/Container";
 import Avatar from "@material-ui/core/Avatar";
 import Hidden from "@material-ui/core/Hidden";
@@ -48,7 +48,7 @@ export default function TopBar() {
   return (
     <AppBar position="" color="default" style={{ position: "fixed", top: 0 }}>
       <Container maxWidth="lg">
-        <ToolBar disableGutters>
+        <Toolbar disableGutters>
           <Hidden xsDown>
             <Image
               src="/assets/cybermatta-logo.png"
@@ -80,7 +80,7 @@ export default function TopBar() {
               <MenuIcon />
             </IconButton>
           </Hidden>
-        </ToolBar>
+        </Toolbar>
       </Container>
       <SwipeableDrawer
         anchor="right"
