@@ -1,79 +1,130 @@
-import Head from "next/head";
-import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import Link from "@material-ui/core/Link";
+import { makeStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Container from "@material-ui/core/Container";
+import Avatar from "@material-ui/core/Avatar";
+import Hidden from "@material-ui/core/Hidden";
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
+import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
+import Divider from "@material-ui/core/Divider";
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import Image from "next/image";
 
-export const TopBar = () => {
+const navigationLinks = [
+  { name: "TECH NEWS", href: "/tech-news" },
+  { name: "EVENTS", href: "/events" },
+  { name: "STARTUPS", href: "/startups" },
+  { name: "HOW TO's", href: "/how-to" },
+  { name: "GADGETS & APPLIANCES", href: "/gadgets-appliances" },
+  { name: "LEARN", href: "/learn" },
+  { name: "SHOP", href: "/shop" },
+];
+
+const useStyles = makeStyles((theme) => ({
+  link: {
+    marginRight: 20,
+    color:"white",
+    '&:hover': {
+      color:"#ef5450",
+      textDecoration:"underline",
+    }
+  },
+  avatar: {
+    marginRight: "auto",
+    color: "white",
+    backgroundColor: "black",
+    borderRadius: 0,
+    height: 30,
+    border: "2px solid gray",
+    borderLeft: "12px solid transparent",
+    borderRight: "12px solid transparent",
+  },
+}));
+
+export default function TopBar() {
+  const styles = useStyles();
+  const [open, setOpen] = useState(false);
+
   return (
-    <div>
-      <Head>
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
-        />
-      </Head>
-      <div className="top">
-        <div className="topLeft">
+    <AppBar position="" color="default" style={{ position: "fixed", top: 0, backgroundColor:"#0a192b" }}>
+      <Container maxWidth="lg">
+        <Toolbar disableGutters>
+          <Hidden xsDown>
           <Link href="/">
-            <img
+            <Image
               src="/assets/cybermatta-logo.png"
-              alt=""
-              className="site-logo"
+              height="40"
+              width="280"
+              style={{ paddingRight: "3em" }}
+              className="cybermatta-logo-image"
             />
-          </Link>
+            </Link>
+            {navigationLinks.map((item) => (
+              <Link
+                className={styles.link}
+                color="textPrimary"
+                variant="button"
+                underline="none"
+                href={item.href}
+                key={item.name}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </Hidden>
+          <Hidden smUp>
+            <Link href="/">
+          <Image
+              src="/assets/cybermatta-logo.png"
+              height="30"
+              width="200"
+              style={{ marginRight: "3em" }}
+              className="cybermatta-logo-image"
+            /></Link>
+            <IconButton onClick={() => setOpen(true)}>
+              <MenuIcon />
+            </IconButton>
+          </Hidden>
+        </Toolbar>
+      </Container>
+      <SwipeableDrawer
+        anchor="right"
+        open={open}
+        onOpen={() => setOpen(true)}
+        onClose={() => setOpen(false)}
+      >
+        <div
+          onClick={() => setOpen(false)}
+          onKeyPress={() => setOpen(false)}
+          role="button"
+          tabIndex={0}
+        >
+          <IconButton>
+            <ChevronRightIcon />
+          </IconButton>
         </div>
-        <div className="topCenter">
-          <ul className="topList">
-            {/* <li className="topListItem">
-              <Link href="/" className="topMenuLink">
-                HOME
+        <Divider />
+        <List>
+          {navigationLinks.map((item) => (
+            <ListItem key={item.name}>
+              <Link
+                className={styles.link}
+                color="textPrimary"
+                variant="button"
+                underline="none"
+                href={item.href}
+              >
+                {item.name}
               </Link>
-            </li> */}
-            <li className="topListItem">
-              <Link href="/tech-news" className="topMenuLink">
-                TECH NEWS
-              </Link>
-            </li>
-            <li className="topListItem">
-              <Link href="/events" className="topMenuLink">
-                EVENTS
-              </Link>
-            </li>
-            <li className="topListItem">
-              <Link href="/startups" className="topMenuLink">
-                STARTUPS
-              </Link>
-            </li>
-            <li className="topListItem">
-              <Link href="/how-to" className="topMenuLink">
-                HOW TO&apos;s
-              </Link>
-            </li>
-            
-            <li className="topListItem">
-              <Link href="/gadgets-appliances" className="topMenuLink">
-                GADGETS & APPLIANCES
-              </Link>
-            </li>
-            <li className="topListItem">
-              <Link href="/gadgets-appliances" className="topMenuLink">
-                LEARN
-              </Link>
-            </li>
-            <li className="topListItem">
-              <Link href="/gadgets-appliances" className="topMenuLink">
-                SHOP
-              </Link>
-            </li>
-          </ul>
-        </div>
-        <div className="topRight">
-          {/* <Link href="/settings">
-            <img src="assets/user-one.jpeg" alt="" className="topProfilePic" />
-          </Link> */}
-          <i className="topSearchIcon bi bi-search"></i>
-        </div>
-      </div>
-    </div>
+            </ListItem>
+          ))}
+        </List>
+      </SwipeableDrawer>
+    </AppBar>
   );
-};
-export default TopBar;
+}

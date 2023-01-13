@@ -6,7 +6,6 @@ import SideBar from "../components/sidebar";
 import JustInSection from "../components/just-in-posts-section";
 import LearnSection from "../components/learn-section";
 import TrendingNews from "../components/trending-news-section/index";
-
 export default function Home() {
   return (
     <div>
