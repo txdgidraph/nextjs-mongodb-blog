@@ -52,10 +52,50 @@ HomepageCSS */
 }
 .post-article-content {
   width: 100%;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
   font-size: 18px;
   color: #444;
-  line-height: 24px;
+  line-height: 26px;
   padding: 0em 4em 2em 4em;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .uri-post-title {
+    padding: 1em;
+  }
+  .post-article-content {
+    padding: 0em 0.5px 2em 0.5px;
+  }
+  .uri-featuredImage {
+   width: 100%;
+   height: auto;
+  }
+  .uri-featuredImageCont {
+    padding: 0.5px;
+  }
+  .uri-post-title {
+   padding: 1px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+ 
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  
 }
