@@ -16,18 +16,23 @@ import ListItem from "@material-ui/core/ListItem";
 import Image from "next/image";
 
 const navigationLinks = [
-  { name: "TECH NEWS", href: "#about" },
-  { name: "EVENTS", href: "#projects" },
-  { name: "STARTUPS", href: "/resume.pdf" },
-  { name: "HOW TO's", href: "#about" },
-  { name: "GADGETS & APPLIANCES", href: "#projects" },
-  { name: "LEARN", href: "/resume.pdf" },
-  { name: "SHOP", href: "/resume.pdf" },
+  { name: "TECH NEWS", href: "/tech-news" },
+  { name: "EVENTS", href: "/events" },
+  { name: "STARTUPS", href: "/startups" },
+  { name: "HOW TO's", href: "/how-to" },
+  { name: "GADGETS & APPLIANCES", href: "/gadgets-appliances" },
+  { name: "LEARN", href: "/learn" },
+  { name: "SHOP", href: "/shop" },
 ];
 
 const useStyles = makeStyles((theme) => ({
   link: {
     marginRight: 20,
+    color:"white",
+    '&:hover': {
+      color:"#ef5450",
+      textDecoration:"underline",
+    }
   },
   avatar: {
     marginRight: "auto",
@@ -46,16 +51,19 @@ export default function TopBar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <AppBar position="" color="default" style={{ position: "fixed", top: 0 }}>
+    <AppBar position="" color="default" style={{ position: "fixed", top: 0, backgroundColor:"#0a192b" }}>
       <Container maxWidth="lg">
         <Toolbar disableGutters>
           <Hidden xsDown>
+          <Link href="/">
             <Image
               src="/assets/cybermatta-logo.png"
               height="40"
-              width="250"
+              width="280"
               style={{ paddingRight: "3em" }}
+              className="cybermatta-logo-image"
             />
+            </Link>
             {navigationLinks.map((item) => (
               <Link
                 className={styles.link}
@@ -70,12 +78,14 @@ export default function TopBar() {
             ))}
           </Hidden>
           <Hidden smUp>
+            <Link href="/">
           <Image
               src="/assets/cybermatta-logo.png"
               height="30"
               width="200"
               style={{ marginRight: "3em" }}
-            />
+              className="cybermatta-logo-image"
+            /></Link>
             <IconButton onClick={() => setOpen(true)}>
               <MenuIcon />
             </IconButton>
