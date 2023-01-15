@@ -6,7 +6,11 @@ import SideBar from "../components/sidebar";
 import JustInSection from "../components/just-in-posts-section";
 import LearnSection from "../components/learn-section";
 import TrendingNews from "../components/trending-news-section/index";
-export default function Home() {
+import gql from "graphql-tag";
+import { client } from "../lib/apollo";
+
+export default function Home({ JUST_IN_posts, LEARN_SEC_posts, TREND_NEWS_posts }) {
+ 
   return (
     <div>
       <Head>
@@ -26,19 +30,101 @@ export default function Home() {
       </Head>
 
       <Header />
-      <JustInSection />
-      <TrendingNews />
-      <LearnSection />
-      {/* <div className="container-fluid">
-        <div className="row">
-          <div className="col-sm-12 col-md-9">
-            <Posts />
-          </div>
-          <div className="col-sm-12 col-md-3">
-            <SideBar />
-          </div>
-        </div>
-      </div> */}
+      <JustInSection data={JUST_IN_posts} />
+       <TrendingNews Trend_News_Data={TREND_NEWS_posts} Just_In_Data={JUST_IN_posts}/>
+      <LearnSection data={LEARN_SEC_posts}/>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const GET_JUST_IN_POSTS = gql`
+    query AllPostsQuery {
+      posts(first: 10) {
+        nodes {
+          title
+          content
+          date
+          uri
+          slug
+          featuredImage {
+            node {
+              mediaItemUrl
+            }
+          }
+          categories {
+            nodes {
+              name
+            }
+          }
+        }
+      }
+    }
+  `;
+  const JUST_IN_response = await client.query({
+    query: GET_JUST_IN_POSTS,
+  });
+  const JUST_IN_posts = JUST_IN_response?.data?.posts?.nodes;
+
+  const GET_LEARN_SEC_POSTS = gql`
+    query AllPostsQuery {
+      posts(first: 10) {
+        nodes {
+          title
+          content
+          date
+          uri
+          slug
+          featuredImage {
+            node {
+              mediaItemUrl
+            }
+          }
+          categories {
+            nodes {
+              name
+            }
+          }
+        }
+      }
+    }
+  `;
+  const LEARN_SEC_response = await client.query({
+    query: GET_LEARN_SEC_POSTS,
+  });
+  const LEARN_SEC_posts = LEARN_SEC_response?.data?.posts?.nodes;
+
+  const GET_TREND_NEWS_SEC_POSTS = gql`
+  query AllPostsQuery {
+    posts(first: 50, where: { categoryName: "_trend-news-section" }) {
+      nodes {
+        title
+        content
+        date
+        uri
+        featuredImage {
+          node {
+            mediaItemUrl
+          }
+        }
+        categories {
+          nodes {
+            name
+          }
+        }
+      }
+    }
+  }
+  `;
+  const TREND_NEWS_response = await client.query({
+    query: GET_TREND_NEWS_SEC_POSTS,
+  });
+  const TREND_NEWS_posts = TREND_NEWS_response?.data?.posts?.nodes;
+  return {
+    props: {
+      JUST_IN_posts,
+      LEARN_SEC_posts,
+      TREND_NEWS_posts,
+    },
+  };
 }

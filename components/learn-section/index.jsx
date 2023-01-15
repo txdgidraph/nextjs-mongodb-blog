@@ -45,7 +45,6 @@ const LearnSection = () => {
   }, []);
 
   const learnSectionPostObjects = fetchedBlogs && fetchedBlogs.slice(0, 4);
-
   return (
     <div>
       {/* <div className="learn-section-title-cont">
@@ -70,7 +69,6 @@ const LearnSection = () => {
         <div className="row">
           {learnSectionPostObjects &&
             learnSectionPostObjects.map((item, index) => {
-              console.log(item);
               return (
                 <div className="col-md-3 col-sm-12" key={index}>
                   <div className="LearnSec-Col-1-cont">

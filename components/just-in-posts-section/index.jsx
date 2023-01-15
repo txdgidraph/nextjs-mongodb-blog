@@ -17,43 +17,13 @@ const useStyles = makeStyles({
   },
 });
 
-const JustInSection = () => {
+const JustInSection = ({ data }) => {
   const [fetchedBlogs, setFetchedBlogs] = useState();
+  const [checkIfBlogLoaded, setcheckIfBlogLoaded] = useState(false);
   useEffect(() => {
-    async function fetchData() {
-      const GET_POSTS = gql`
-        query AllPostsQuery {
-          posts(first: 10) {
-            nodes {
-              title
-              content
-              date
-              uri
-              slug
-              featuredImage {
-                node {
-                  mediaItemUrl
-                }
-              }
-              categories {
-                nodes {
-                  name
-                }
-              }
-            }
-          }
-        }
-      `;
-      const response = await client.query({
-        query: GET_POSTS,
-      });
-      const posts = response?.data?.posts?.nodes;
-      setFetchedBlogs(posts);
-    }
-    fetchData();
+    setFetchedBlogs(data);
   }, []);
   const getTheFirstSixBlogs = fetchedBlogs && fetchedBlogs.slice(0, 6);
-
   const justIn_topSectionCol_1 =
     getTheFirstSixBlogs && getTheFirstSixBlogs.slice(0, 1);
   const justIn_topSectionCol_2 =
@@ -68,7 +38,7 @@ const JustInSection = () => {
         <i
           class="fa fa-bar-chart"
           aria-hidden="true"
-          style={{ color: "#ef5450", fontSize:"2em", marginRight:"0.5em" }}
+          style={{ color: "#ef5450", fontSize: "2em", marginRight: "0.5em" }}
         ></i>
         <span className="justin-sec-title-title"> JUST IN POSTS</span>
       </div>
@@ -86,7 +56,7 @@ const JustInSection = () => {
                 <img
                   src={item.featuredImage.node.mediaItemUrl}
                   alt=""
-                  className="justin-column-1-top-img"
+                  className={`justin-column-1-top-img`}
                 />
                 <div className="justin-column-1-post-details">
                   <span className="justin-column-1-top-title">
