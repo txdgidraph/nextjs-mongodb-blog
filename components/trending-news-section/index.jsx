@@ -40,12 +40,11 @@ const trendNewsTopSection = (postsObjects) => {
     <div>
       <div className="justin-sec-title-cont">
         <i
-            class="fa fa-heart"
-            aria-hidden="true"
-            style={{ color: "#ef5450", fontSize:"2em", marginRight:"0.5em" }}
-          ></i><span className="justin-sec-title-title">
-          Trending News Section
-        </span>
+          class="fa fa-heart"
+          aria-hidden="true"
+          style={{ color: "#ef5450", fontSize: "2em", marginRight: "0.5em" }}
+        ></i>
+        <span className="justin-sec-title-title">Trending News Section</span>
       </div>
       <Grid container spacing={2}>
         {postsObjects &&
@@ -127,65 +126,13 @@ const trendNewsHeadlineSection = (postsObjects) => {
   );
 };
 
-const TrendingNews = () => {
+const TrendingNews = ({Trend_News_Data, Just_In_Data}) => {
   const [trendNewsfetchedBlogs, setTrendNewsFetchedBlogs] = useState();
   const [justInfetchedBlogs, setJustINFetchedBlogs] = useState();
+
   useEffect(() => {
-    async function trend_news_fetchData() {
-      const GET_POSTS = gql`
-        query AllPostsQuery {
-          posts(first: 50, where: { categoryName: "_trend-news-section" }) {
-            nodes {
-              title
-              content
-              date
-              uri
-              featuredImage {
-                node {
-                  mediaItemUrl
-                }
-              }
-              categories {
-                nodes {
-                  name
-                }
-              }
-            }
-          }
-        }
-      `;
-      const response = await client.query({
-        query: GET_POSTS,
-      });
-      const posts = response?.data?.posts?.nodes;
-      setTrendNewsFetchedBlogs(posts);
-    }
-
-    async function just_in_fetchData() {
-      const GET_POSTS = gql`
-        query AllPostsQuery {
-          posts(first: 6) {
-            nodes {
-              title
-              uri
-              categories {
-                nodes {
-                  name
-                }
-              }
-            }
-          }
-        }
-      `;
-      const response = await client.query({
-        query: GET_POSTS,
-      });
-      const posts = response?.data?.posts?.nodes;
-      setJustINFetchedBlogs(posts);
-    }
-
-    just_in_fetchData();
-    trend_news_fetchData();
+    setTrendNewsFetchedBlogs(Trend_News_Data);
+    setJustINFetchedBlogs(Just_In_Data);
   }, []);
 
   const justInPostsLinksArr =
@@ -203,6 +150,7 @@ const TrendingNews = () => {
       }
       return acc;
     }, []);
+    console.log(trendNewsBlogs_NotInJustInSection)
 
   const trendNewsTopSectionObjects =
     trendNewsBlogs_NotInJustInSection &&

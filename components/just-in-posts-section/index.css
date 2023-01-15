@@ -7,6 +7,22 @@ body {
   width: auto !important;
   overflow-x: hidden !important;
 }
+
+.skeleton-loading{
+  opacity: 0.7;
+  width: 100%;
+  height: 100%;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+@keyframes skeleton-loading {
+  0%{
+    background-color: hsl(200, 20%, 70%);
+  }
+  100%{
+    background-color: hsl(200, 20%, 95%);
+  }
+  
+}
 .justin-sec-title-cont {
   /* width: 100%; */
   display: flex;
