@@ -12,7 +12,7 @@ import {
 } from "@material-ui/icons";
 
 const useStyles = makeStyles({
-  root: {
+  footerContainer: {
     backgroundColor: "#0a192b",
     color: "white",
     padding: "30px 0",
@@ -31,7 +31,7 @@ const FooterComponent = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <div className={classes.footerContainer}>
       <Grid container spacing={3} className={classes.grid_container}>
         <Grid item xs={12} sm={3} className={classes.column}>
           <Typography variant="h6" className={classes.heading}>
