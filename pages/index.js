@@ -33,8 +33,8 @@ export default function Home({
       </Head>
 
       <Header />
-      {/* <JustInSection data={JUST_IN_posts} />
-      <TrendingNews
+       <JustInSection data={JUST_IN_posts} />
+      {/*<TrendingNews
         Trend_News_Data={TREND_NEWS_posts}
         Just_In_Data={JUST_IN_posts}
       />
