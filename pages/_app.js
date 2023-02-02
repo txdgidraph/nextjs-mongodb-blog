@@ -20,11 +20,9 @@ import { ThemeProvider } from "@material-ui/core";
 import { theme } from "../components/theme";
 import "../components/gadgets-devices-section/index.css";
 import "../components/footer-section/index.css";
-import { StylesProvider } from "@material-ui/styles";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <StylesProvider injectFirst>
       <ThemeProvider theme={theme}>
         <ApolloProvider client={client}>
           <Head>
@@ -49,7 +47,6 @@ function MyApp({ Component, pageProps }) {
           </Layout>
         </ApolloProvider>
       </ThemeProvider>
-    </StylesProvider>
   );
 }
 
