@@ -32,7 +32,7 @@ const FooterComponent = () => {
 
   return (
     <div className={classes.footerContainer}>
-      <Grid container spacing={3} className={classes.grid_container}>
+      {/* <Grid container spacing={3} className={classes.grid_container}>
         <Grid item xs={12} sm={3} className={classes.column}>
           <Typography variant="h6" className={classes.heading}>
             About
@@ -78,7 +78,14 @@ const FooterComponent = () => {
             <Pinterest/>
           </div>
         </Grid>
-      </Grid>
+      </Grid> */}
+      <h1>Hello Hello</h1>
+      <h1>Hello Hello</h1>
+      <h1>Hello Hello</h1>
+      <h1>Hello Hello</h1>
+      <h1>Hello Hello</h1>
+      <h1>Hello Hello</h1>
+      <h1>Hello Hello</h1>
     </div>
   );
 };

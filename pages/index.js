@@ -39,7 +39,7 @@ export default function Home({
         Just_In_Data={JUST_IN_posts}
       />
       <LearnSection data={LEARN_SEC_posts} />
-      {/* <GadgetsDevices /> */}
+      <GadgetsDevices />
     </div>
   );
 }
