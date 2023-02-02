@@ -2,6 +2,8 @@ import { Grid } from "@material-ui/core";
 import React from "react";
 import { makeStyles } from "@material-ui/core";
 import Link from "next/link";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const TechBytesObjects = [
   {
@@ -37,7 +39,7 @@ const useStyles = makeStyles({
     color: "#0a182a",
   },
   justin_column_1_hero_image: {
-    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://sub1.netmatta.com/wp-content/uploads/2022/12/wallpaper-four-scaled.jpeg")`,
+    //backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://sub1.netmatta.com/wp-content/uploads/2022/12/wallpaper-four-scaled.jpeg")`,
     height: "100%",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
@@ -64,6 +66,13 @@ const useStyles = makeStyles({
 });
 
 function GadgetsDevices() {
+  //Check if client-side JavaScript is mounted before applying MUI styles
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const classes = useStyles();
   return (
     <div style={{ margin: "0em 5em 0em 5em" }}>
@@ -79,12 +88,12 @@ function GadgetsDevices() {
           <Grid item xs={12} md={7}>
             <div style={{ height: "100%" }}>
               <div
-                className={`${classes.justin_column_1_hero_image}`}
+                className={`${mounted && classes.justin_column_1_hero_image}`}
                 style={{
                   backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/assets/wallpaper-one.jpeg)`,
                 }}
               >
-                <div className={classes.justin_column_1_hero_text}>
+                <div className={mounted && classes.justin_column_1_hero_text}>
                   <span className="justin-column-1-top-title">
                     <Link href={"#"} className="justin-column-1-top-link">
                       Jack Dorsey thinks Twitter should’ve been allowed to be a

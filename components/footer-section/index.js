@@ -11,31 +11,13 @@ import {
   Pinterest,
 } from "@material-ui/icons";
 
-const useStyles = makeStyles({
-  footerContainer: {
-    backgroundColor: "#0a192b",
-    color: "white",
-    padding: "30px 0",
-    marginTop: "2em",
-  },
-  footer_grid_container: {
-    margin: "0 5em 0 5em",
-  },
-  heading: {
-    fontWeight: "bold",
-    paddingBottom: "5px",
-  },
-});
-
 const FooterComponent = () => {
-  const footer_classes = useStyles();
 
   return (
     <div className="footerContainer">
       <Grid
         container
         spacing={3}
-        className="footer_grid_container"
       >
         <Grid item xs={12} sm={3}>
           <Typography variant="h6" className="footer_heading">

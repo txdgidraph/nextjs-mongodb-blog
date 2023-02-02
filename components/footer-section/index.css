@@ -3,9 +3,7 @@
     color: white;
     padding: 30px 0;
     margin-top: 2em;
-}
-.footer_grid_container{
-    margin: 0 5em 0 5em;
+    padding-left: 10em;
 }
 .footer_heading{
     font-weight: bold;
