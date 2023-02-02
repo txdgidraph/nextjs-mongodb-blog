@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Footer from '../../components/Footer';
 import PostCard from '../../components/PostCard';
 import { client } from '../../lib/apollo';
 import { gql } from "@apollo/client";
@@ -32,8 +31,6 @@ export default function Home({ posts }) {
           }
         </div>
       </main>
-
-      <Footer></Footer>
     </div>
   )
 }
