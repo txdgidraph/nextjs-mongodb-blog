@@ -1,0 +1,13 @@
+.footerContainer{
+    background-color: #0a192b;
+    color: white;
+    padding: 30px 0;
+    margin-top: 2em;
+}
+.footer_grid_container{
+    margin: 0 5em 0 5em;
+}
+.footer_heading{
+    font-weight: bold;
+    padding-bottom: "5px";
+}

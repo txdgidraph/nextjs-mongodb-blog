@@ -28,13 +28,17 @@ const useStyles = makeStyles({
 });
 
 const FooterComponent = () => {
-  const classes = useStyles();
+  const footer_classes = useStyles();
 
   return (
-    <div className={classes.footerContainer}>
-      <Grid container spacing={3} className={classes.footer_grid_container}>
+    <div className="footerContainer">
+      <Grid
+        container
+        spacing={3}
+        className="footer_grid_container"
+      >
         <Grid item xs={12} sm={3}>
-          <Typography variant="h6" className={classes.heading}>
+          <Typography variant="h6" className="footer_heading">
             About
           </Typography>
           <Typography variant="body1">Cybermatta</Typography>
@@ -44,7 +48,7 @@ const FooterComponent = () => {
           <Typography variant="body1">Newsletters</Typography>
         </Grid>
         <Grid item xs={12} sm={3}>
-          <Typography variant="h6" className={classes.heading}>
+          <Typography variant="h6" className="footer_heading">
             Legal
           </Typography>
           <Typography variant="body1">Terms of Service</Typography>
@@ -55,7 +59,7 @@ const FooterComponent = () => {
           <Typography variant="body1">Site Map</Typography>
         </Grid>
         <Grid item xs={12} sm={3}>
-          <Typography variant="h6" className={classes.heading}>
+          <Typography variant="h6" className="footer_heading">
             Navigation
           </Typography>
           <Typography variant="body1">Tech News</Typography>
@@ -66,7 +70,7 @@ const FooterComponent = () => {
           <Typography variant="body1">Women in Tech</Typography>
         </Grid>
         <Grid item xs={12} sm={3}>
-          <Typography variant="h6" className={classes.heading}>
+          <Typography variant="h6" className="footer_heading">
             Social Media
           </Typography>
           <div style={{ display: "flex", flexDirection: "column" }}>
