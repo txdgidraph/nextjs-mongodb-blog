@@ -8,9 +8,12 @@ import LearnSection from "../components/learn-section";
 import TrendingNews from "../components/trending-news-section/index";
 import gql from "graphql-tag";
 import { client } from "../lib/apollo";
-
-export default function Home({ JUST_IN_posts, LEARN_SEC_posts, TREND_NEWS_posts }) {
- 
+import GadgetsDevices from "../components/gadgets-devices-section";
+export default function Home({
+  JUST_IN_posts,
+  LEARN_SEC_posts,
+  TREND_NEWS_posts,
+}) {
   return (
     <div>
       <Head>
@@ -31,8 +34,12 @@ export default function Home({ JUST_IN_posts, LEARN_SEC_posts, TREND_NEWS_posts 
 
       <Header />
       <JustInSection data={JUST_IN_posts} />
-       <TrendingNews Trend_News_Data={TREND_NEWS_posts} Just_In_Data={JUST_IN_posts}/>
-      <LearnSection data={LEARN_SEC_posts}/>
+      <TrendingNews
+        Trend_News_Data={TREND_NEWS_posts}
+        Just_In_Data={JUST_IN_posts}
+      />
+      <LearnSection data={LEARN_SEC_posts} />
+      <GadgetsDevices />
     </div>
   );
 }
@@ -95,31 +102,37 @@ export async function getStaticProps() {
   const LEARN_SEC_posts = LEARN_SEC_response?.data?.posts?.nodes;
 
   const GET_TREND_NEWS_SEC_POSTS = gql`
-  query AllPostsQuery {
-    posts(first: 50, where: { categoryName: "_trend-news-section" }) {
-      nodes {
-        title
-        content
-        date
-        uri
-        featuredImage {
-          node {
-            mediaItemUrl
+    query AllPostsQuery {
+      posts(first: 50, where: { categoryName: "_trend-news-section" }) {
+        nodes {
+          title
+          content
+          date
+          uri
+          featuredImage {
+            node {
+              mediaItemUrl
+            }
           }
-        }
-        categories {
-          nodes {
-            name
+          categories {
+            nodes {
+              name
+            }
           }
         }
       }
     }
-  }
   `;
   const TREND_NEWS_response = await client.query({
     query: GET_TREND_NEWS_SEC_POSTS,
   });
   const TREND_NEWS_posts = TREND_NEWS_response?.data?.posts?.nodes;
+
+  // const clientTEST = await clientPromise;
+  // const db = clientTEST.db("users_db");
+  // let users = await db.collection("users_details").find({}).toArray();
+  // users = JSON.parse(JSON.stringify(users));
+
   return {
     props: {
       JUST_IN_posts,

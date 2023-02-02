@@ -19,6 +19,7 @@ const SocialMediaButtons = () => {
 
   return (
     <div>
+      <h3>Follow Us</h3>
       <Grid container spacing={2}>
         <Grid item md={6} sm={6} xs={6}>
           <div
