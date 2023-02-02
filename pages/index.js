@@ -33,13 +33,13 @@ export default function Home({
       </Head>
 
       <Header />
-      <JustInSection data={JUST_IN_posts} />
+      {/* <JustInSection data={JUST_IN_posts} />
       <TrendingNews
         Trend_News_Data={TREND_NEWS_posts}
         Just_In_Data={JUST_IN_posts}
       />
       <LearnSection data={LEARN_SEC_posts} />
-      <GadgetsDevices />
+      <GadgetsDevices /> */}
     </div>
   );
 }
