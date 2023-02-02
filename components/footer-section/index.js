@@ -18,7 +18,7 @@ const useStyles = makeStyles({
     padding: "30px 0",
     marginTop: "2em",
   },
-  grid_container: {
+  footer_grid_container: {
     margin: "0 5em 0 5em",
   },
   heading: {
@@ -32,7 +32,7 @@ const FooterComponent = () => {
 
   return (
     <div className={classes.footerContainer}>
-      {/* <Grid container spacing={3} className={classes.grid_container}>
+      <Grid container spacing={3} className={classes.footer_grid_container}>
         <Grid item xs={12} sm={3} className={classes.column}>
           <Typography variant="h6" className={classes.heading}>
             About
@@ -69,23 +69,16 @@ const FooterComponent = () => {
           <Typography variant="h6" className={classes.heading}>
             Social Media
           </Typography>
-          <div style={{display:"flex", flexDirection:"column"}}>
+          <div style={{ display: "flex", flexDirection: "column" }}>
             <Facebook />
             <Twitter />
             <YouTube />
             <Instagram />
-            <LinkedIn/>
-            <Pinterest/>
+            <LinkedIn />
+            <Pinterest />
           </div>
         </Grid>
-      </Grid> */}
-      <h1>Hello Hello</h1>
-      <h1>Hello Hello</h1>
-      <h1>Hello Hello</h1>
-      <h1>Hello Hello</h1>
-      <h1>Hello Hello</h1>
-      <h1>Hello Hello</h1>
-      <h1>Hello Hello</h1>
+      </Grid>
     </div>
   );
 };
