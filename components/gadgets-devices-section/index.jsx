@@ -82,7 +82,6 @@ function GadgetsDevices() {
                 className={`${classes.justin_column_1_hero_image}`}
                 style={{
                   backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/assets/wallpaper-one.jpeg)`,
-                  
                 }}
               >
                 <div className={classes.justin_column_1_hero_text}>

@@ -33,7 +33,7 @@ const FooterComponent = () => {
   return (
     <div className={classes.footerContainer}>
       <Grid container spacing={3} className={classes.footer_grid_container}>
-        <Grid item xs={12} sm={3} className={classes.column}>
+        <Grid item xs={12} sm={3}>
           <Typography variant="h6" className={classes.heading}>
             About
           </Typography>
@@ -43,7 +43,7 @@ const FooterComponent = () => {
           <Typography variant="body1">Advertise</Typography>
           <Typography variant="body1">Newsletters</Typography>
         </Grid>
-        <Grid item xs={12} sm={3} className={classes.column}>
+        <Grid item xs={12} sm={3}>
           <Typography variant="h6" className={classes.heading}>
             Legal
           </Typography>
@@ -54,7 +54,7 @@ const FooterComponent = () => {
           <Typography variant="body1">Newsletters</Typography>
           <Typography variant="body1">Site Map</Typography>
         </Grid>
-        <Grid item xs={12} sm={3} className={classes.column}>
+        <Grid item xs={12} sm={3}>
           <Typography variant="h6" className={classes.heading}>
             Navigation
           </Typography>
@@ -65,7 +65,7 @@ const FooterComponent = () => {
           <Typography variant="body1">Tech Bros</Typography>
           <Typography variant="body1">Women in Tech</Typography>
         </Grid>
-        <Grid item xs={12} sm={3} className={classes.column}>
+        <Grid item xs={12} sm={3}>
           <Typography variant="h6" className={classes.heading}>
             Social Media
           </Typography>
