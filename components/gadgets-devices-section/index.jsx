@@ -103,9 +103,9 @@ function GadgetsDevices() {
           </Grid>
           <Grid item xs={12} md={5}>
             <Grid container>
-              {TechBytesObjects.map((item) => {
+              {TechBytesObjects.map((item, index) => {
                 return (
-                  <Grid item xs={12} md={12}>
+                  <Grid item xs={12} md={12} key={index}>
                     <div style={{ display: "flex" }}>
                       <div
                         style={{
