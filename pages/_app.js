@@ -19,7 +19,6 @@ import { client } from "../lib/apollo";
 import { ThemeProvider } from "@material-ui/core";
 import { theme } from "../components/theme";
 import "../components/gadgets-devices-section/index.css";
-import "../components/footer-section/index.css";
 
 function MyApp({ Component, pageProps }) {
   return (

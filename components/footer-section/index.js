@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
@@ -11,16 +11,34 @@ import {
   Pinterest,
 } from "@material-ui/icons";
 
+const useStyles = makeStyles({
+  footerContainer: {
+    backgroundColor: "#0a192b",
+    color: "white",
+    padding: "30px 0",
+    marginTop: "2em",
+    paddingLeft: "10em",
+  },
+  heading: {
+    fontWeight: "bold",
+    paddingBottom: "5px",
+  },
+});
+
 const FooterComponent = () => {
+  //Check if client-side JavaScript is mounted before applying MUI styles
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  const classes = useStyles();
 
   return (
-    <div className="footerContainer">
-      <Grid
-        container
-        spacing={3}
-      >
+    <div className={mounted && classes.footerContainer}>
+      <Grid container spacing={3}>
         <Grid item xs={12} sm={3}>
-          <Typography variant="h6" className="footer_heading">
+          <Typography variant="h6" className={mounted && classes.heading}>
             About
           </Typography>
           <Typography variant="body1">Cybermatta</Typography>
@@ -30,7 +48,7 @@ const FooterComponent = () => {
           <Typography variant="body1">Newsletters</Typography>
         </Grid>
         <Grid item xs={12} sm={3}>
-          <Typography variant="h6" className="footer_heading">
+          <Typography variant="h6" className={mounted && classes.heading}>
             Legal
           </Typography>
           <Typography variant="body1">Terms of Service</Typography>
@@ -41,7 +59,7 @@ const FooterComponent = () => {
           <Typography variant="body1">Site Map</Typography>
         </Grid>
         <Grid item xs={12} sm={3}>
-          <Typography variant="h6" className="footer_heading">
+          <Typography variant="h6" className={mounted && classes.heading}>
             Navigation
           </Typography>
           <Typography variant="body1">Tech News</Typography>
@@ -52,7 +70,7 @@ const FooterComponent = () => {
           <Typography variant="body1">Women in Tech</Typography>
         </Grid>
         <Grid item xs={12} sm={3}>
-          <Typography variant="h6" className="footer_heading">
+          <Typography variant="h6" className={mounted && classes.heading}>
             Social Media
           </Typography>
           <div style={{ display: "flex", flexDirection: "column" }}>
