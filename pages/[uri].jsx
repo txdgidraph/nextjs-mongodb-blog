@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Footer from "../components/Footer";
 import { client } from "../lib/apollo";
 import { gql } from "@apollo/client";
 import SideBar from "../components/sidebar";
@@ -88,7 +87,6 @@ export default function SlugPage({ post }) {
           </div>
         </div>
       </main>
-      <Footer></Footer>
     </div>
   );
 }

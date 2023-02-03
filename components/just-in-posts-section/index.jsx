@@ -15,6 +15,30 @@ const useStyles = makeStyles({
     padding: "1em",
     color: "#0a182a",
   },
+  justin_column_1_hero_image: {
+    height: "100%",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    position: "relative",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  justin_column_1_hero_text: {
+    color: "white",
+    margin: "1em",
+  },
+  justin_column_1_hero_text_button: {
+    border: "none",
+    outline: "0",
+    display: "inline-block",
+    padding: "10px 25px",
+    color: "black",
+    backgroundColor: "#eee",
+    textAlign: "center",
+    cursor: "pointer",
+  },
 });
 
 const JustInSection = ({ data }) => {
@@ -33,7 +57,7 @@ const JustInSection = ({ data }) => {
   const classes = useStyles();
 
   return (
-    <div>
+    <div style={{margin:"0em 5em 0em 5em"}}>
       <div className="justin-sec-title-cont">
         <i
           class="fa fa-bar-chart"
@@ -53,21 +77,31 @@ const JustInSection = ({ data }) => {
                 key={index}
                 className="justin-column-1-top"
               >
-                <img
-                  src={item.featuredImage.node.mediaItemUrl}
-                  alt=""
-                  className={`justin-column-1-top-img`}
-                />
-                <div className="justin-column-1-post-details">
-                  <span className="justin-column-1-top-title">
-                    <Link href={item.uri} className="justin-column-1-top-link">
-                      {item.title}
-                    </Link>
-                  </span>
-                  <span className="justin-column-1-top-details">
-                    <DatePublished date={item.date} /> |{" "}
-                    <PostCategory categoryObject={item.categories.nodes} />
-                  </span>
+            
+                <div className="justin-column-1-top-img">
+                  <div
+                    className={`${classes.justin_column_1_hero_image}`}
+                    style={{
+                      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${item.featuredImage.node.mediaItemUrl})`,
+                    }}
+                  >
+                    <div className={classes.justin_column_1_hero_text}>
+                      <span className="justin-column-1-top-title">
+                        <Link
+                          href={item.uri}
+                          className="justin-column-1-top-link"
+                        >
+                          {item.title}
+                        </Link>
+                      </span>
+                      <br />
+                      <br />
+                      <span className="justin-column-1-top-details">
+                        <DatePublished date={item.date} /> |{" "}
+                        <PostCategory categoryObject={item.categories.nodes} />
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </Grid>
             );

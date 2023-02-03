@@ -2,15 +2,15 @@
   /* width: 100%; */
   display: flex;
   /* align-items: center; */
-  margin: 3em 0em 2em 1em;
+  margin: 2em 0em 2em 0em;
   color: #0a192c;
   font-family: "Josefin Sans", sans-serif;
   flex-direction: column;
 }
 
 .fullTrendNews-Container {
-  margin-right: 1em;
-  margin-left: 1em;
+  margin-right: 5em;
+  margin-left: 5em;
 }
 .trendnews-topsec-featuredimage {
   height: 300px;
@@ -59,7 +59,8 @@
 }
 .trendnews-headlsec-img-cont {
   height: 100px;
-  width: 200px;
+  width: auto;
+  padding-right: 0.5em;
 }
 .trendnews-headlsec-img {
   width: auto;
@@ -117,4 +118,44 @@
 .trendnews-byteDate {
   padding-top: 0.5em;
   font-size: 13px;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .fullTrendNews-Container {
+    margin-right: 1em;
+    margin-left: 1em;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .fullTrendNews-Container {
+    margin-right: 1em;
+    margin-left: 1em;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .fullTrendNews-Container {
+    margin-right: 3em;
+    margin-left: 3em;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .fullTrendNews-Container {
+    margin-right: 1em;
+    margin-left: 1em;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .fullTrendNews-Container {
+    margin-right: 5em;
+    margin-left: 5em;
+  }
 }

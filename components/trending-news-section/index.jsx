@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import DatePublished from "../published-date";
 import PostCategory from "../return-post-category";
 import Link from "next/link";
+import SocialMediaButtons from "../social-media-button";
 
 const TechBytesObjects = [
   {
@@ -28,24 +29,16 @@ const TechBytesObjects = [
     featuredTitle: "8 Individuals who defined the Global Tech Space in 2022",
     byteDate: "December 21, 2022",
   },
-  // {
-  //   featuredImage: "https://technext.ng/wp-content/uploads/2022/12/SBFCZ.png",
-  //   featuredTitle: "8 Individuals who defined the Global Tech Space in 2022",
-  //   byteDate: "December 21, 2022",
-  // },
+  {
+    featuredImage: "https://technext.ng/wp-content/uploads/2022/12/SBFCZ.png",
+    featuredTitle: "8 Individuals who defined the Global Tech Space in 2022",
+    byteDate: "December 21, 2022",
+  },
 ];
 
 const trendNewsTopSection = (postsObjects) => {
   return (
     <div>
-      <div className="justin-sec-title-cont">
-        <i
-          class="fa fa-heart"
-          aria-hidden="true"
-          style={{ color: "#ef5450", fontSize: "2em", marginRight: "0.5em" }}
-        ></i>
-        <span className="justin-sec-title-title">Trending News Section</span>
-      </div>
       <Grid container spacing={2}>
         {postsObjects &&
           postsObjects.map((item, index) => {
@@ -126,7 +119,7 @@ const trendNewsHeadlineSection = (postsObjects) => {
   );
 };
 
-const TrendingNews = ({Trend_News_Data, Just_In_Data}) => {
+const TrendingNews = ({ Trend_News_Data, Just_In_Data }) => {
   const [trendNewsfetchedBlogs, setTrendNewsFetchedBlogs] = useState();
   const [justInfetchedBlogs, setJustINFetchedBlogs] = useState();
 
@@ -150,9 +143,8 @@ const TrendingNews = ({Trend_News_Data, Just_In_Data}) => {
       }
       return acc;
     }, []);
-    console.log(trendNewsBlogs_NotInJustInSection)
 
-  const trendNewsTopSectionObjects =
+    const trendNewsTopSectionObjects =
     trendNewsBlogs_NotInJustInSection &&
     trendNewsBlogs_NotInJustInSection.slice(0, 2);
   const trendNewsHeadlineSectionObjects =
@@ -162,20 +154,30 @@ const TrendingNews = ({Trend_News_Data, Just_In_Data}) => {
   return (
     <div>
       <div className="fullTrendNews-Container">
+        <div className="justin-sec-title-cont">
+          <i
+            class="fa fa-heart"
+            aria-hidden="true"
+            style={{ color: "#ef5450", fontSize: "2em", marginRight: "0.5em" }}
+          ></i>
+          <span className="justin-sec-title-title">Trending News Section</span>
+        </div>
         {trendNewsfetchedBlogs && (
-          <Grid container spacing={2}>
+          <Grid container spacing={3}>
             <Grid item xs={12} sm={8} md={8}>
               {trendNewsTopSection(trendNewsTopSectionObjects)}
               {trendNewsHeadlineSection(trendNewsHeadlineSectionObjects)}
             </Grid>
 
             <Grid item xs={12} sm={4} md={4}>
+            <SocialMediaButtons/>
               <div className="trendnews-sec-title-cont">
                 <h5 style={{ color: "#555" }}>This Week&apos;s</h5>
                 <span className="trendnews-sec-title-title">
                   Leading Activities
                 </span>
               </div>
+             
               <Grid container>
                 {TechBytesObjects.map((item, index) => {
                   return (
@@ -189,7 +191,7 @@ const TrendingNews = ({Trend_News_Data, Just_In_Data}) => {
                           />
                         </div>
                         <div className="trendnews-byteDetails-cont">
-                          <span className="trendnews-byteTitle">
+                          <span className="trendnews-byteTitle" style={{fontWeight:"bold"}}>
                             {item.featuredTitle}
                           </span>
                           <span className="trendnews-byteDate">
