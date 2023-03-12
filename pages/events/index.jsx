@@ -104,7 +104,7 @@ const EVENTS = (users) => {
       <label htmlFor="file-upload">
         <div>
           {/* <img src={profileImage} className="" /> */}
-          <div id="dashboard-image-hover">Upload Image</div>
+          <div id="dashboard-image-hover">Upload Image here</div>
         </div>
       </label>
       <input id="file-upload" type="file" onChange={handleProfileImageUpload} />
