@@ -91,7 +91,7 @@ export default function SlugPage({ post }) {
   );
 }
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const GET_POST = gql`
     query GetPostByURI($id: ID!) {
       post(id: $id, idType: URI) {
@@ -125,9 +125,6 @@ export async function getStaticProps({ params }) {
       }
     }
   `;
-  //  the params argument for this function corresponds to the dynamic URL segments
-  //  we included in our page-based route. So, in this case, the `params` object will have
-  //  a property named `uri` that contains that route segment when a user hits the page
   const response = await client.query({
     query: GET_POST,
     variables: {
@@ -139,13 +136,5 @@ export async function getStaticProps({ params }) {
     props: {
       post,
     },
-  };
-}
-
-export async function getStaticPaths() {
-  const paths = [];
-  return {
-    paths,
-    fallback: "blocking",
   };
 }
