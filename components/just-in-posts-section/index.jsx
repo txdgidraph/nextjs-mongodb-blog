@@ -57,7 +57,7 @@ const JustInSection = ({ data }) => {
   const classes = useStyles();
 
   return (
-    <div style={{margin:"0em 5em 0em 5em"}}>
+    <div className="justInContainer">
       <div className="justin-sec-title-cont">
         <i
           class="fa fa-bar-chart"

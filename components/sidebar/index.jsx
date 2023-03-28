@@ -1,54 +1,53 @@
 import React from "react";
 import Image from "next/image";
 import Head from "next/head";
+import { Grid } from "@material-ui/core";
 
-const SideBar = () => {
+const dummyFiles = [
+  {
+    imageName: "/assets/wallpaper-one.jpeg",
+    title: "Best single-board computers for AI and deep learning",
+  },
+  {
+    imageName: "/assets/wallpaper-one.jpeg",
+    title: "Setting up a Nextcloud server on DietPi",
+  },
+  {
+    imageName: "/assets/wallpaper-one.jpeg",
+    title: "Best single-board computers for AI and deep learning",
+  },
+  {
+    imageName: "/assets/wallpaper-one.jpeg",
+    title: "Setting up a Nextcloud server on DietPi",
+  },
+];
+
+const SideBar = ({ relatedPost }) => {
+  console.log(relatedPost);
   return (
-    <div>
+    <div style={{ backgroundColor: "#FDFAFA", margin: "4em 1em 1em 1em" }}>
       <Head>
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
         />
       </Head>
-      <div className="sideBar">
-        <div className="sideBarItem">
-          <span className="sideBarTite">ABOUT ME</span>
-          <Image
-            className="sideBarImg"
-            src="/assets/user-one.jpeg"
-            alt="Picture of the author"
-            width={200}
-            height={200}
-          />
-          <p className="sideBarAboutMeText">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio
-            ratione voluptate perferendis temporibus debitis repudiandae omnis
-            quos dolores nihil asperiores ipsam ipsum nulla minus quas corrupti
-            accusamus, deleniti facilis corporis.
-          </p>
-        </div>
-        <div className="sideBarItem">
-          <span className="sideBarTite">CATEGORIES</span>
-          <ul className="sideBarList">
-            <li className="sideBarListItem">Tech News</li>
-            <li className="sideBarListItem">How Tos</li>
-            <li className="sideBarListItem">Podcast</li>
-            <li className="sideBarListItem">Events</li>
-            <li className="sideBarListItem">Startups</li>
-            <li className="sideBarListItem">CyberSecurity</li>
-          </ul>
-        </div>
-        <div className="sideBarItem">
-          <span className="sideBarTite">FOLLOW US</span>
-          <div className="sideBarSocial">
-            <i className=" sideBarIcon bi bi-facebook"></i>
-            <i className=" sideBarIcon bi bi-twitter"></i>
-            <i className=" sideBarIcon bi bi-instagram"></i>
-            <i className=" sideBarIcon bi bi-google"></i>
-          </div>
-        </div>
-      </div>
+      <div className="recent-posts-title">RELATED POSTS</div>
+      <Grid container spacing={2} style={{ padding: "0em 2em 0em 2em" }}>
+        {relatedPost.map((item) => {
+          console.log(item);
+          return (
+            <Grid item xs={6} sm={6} md={6}>
+              <img
+                src={item.featuredImage.node.mediaItemUrl}
+                alt={item.featuredImage.title}
+                style={{ width: "100%", height: "auto" }}
+              />
+              <p>{item.title}</p>
+            </Grid>
+          );
+        })}
+      </Grid>
     </div>
   );
 };
