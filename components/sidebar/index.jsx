@@ -34,10 +34,10 @@ const SideBar = ({ relatedPost }) => {
       </Head>
       <div className="recent-posts-title">RELATED POSTS</div>
       <Grid container spacing={2} style={{ padding: "0em 2em 0em 2em" }}>
-        {relatedPost.map((item) => {
+        {relatedPost.map((item, index) => {
           console.log(item);
           return (
-            <Grid item xs={6} sm={6} md={6}>
+            <Grid item xs={6} sm={6} md={6} key={index}>
               <img
                 src={item.featuredImage.node.mediaItemUrl}
                 alt={item.featuredImage.title}
