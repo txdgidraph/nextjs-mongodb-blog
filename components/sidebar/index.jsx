@@ -2,25 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Head from "next/head";
 import { Grid } from "@material-ui/core";
-
-const dummyFiles = [
-  {
-    imageName: "/assets/wallpaper-one.jpeg",
-    title: "Best single-board computers for AI and deep learning",
-  },
-  {
-    imageName: "/assets/wallpaper-one.jpeg",
-    title: "Setting up a Nextcloud server on DietPi",
-  },
-  {
-    imageName: "/assets/wallpaper-one.jpeg",
-    title: "Best single-board computers for AI and deep learning",
-  },
-  {
-    imageName: "/assets/wallpaper-one.jpeg",
-    title: "Setting up a Nextcloud server on DietPi",
-  },
-];
+import Link from "next/link";
 
 const SideBar = ({ relatedPost }) => {
   console.log(relatedPost);
@@ -43,7 +25,9 @@ const SideBar = ({ relatedPost }) => {
                 alt={item.featuredImage.title}
                 style={{ width: "100%", height: "auto" }}
               />
-              <p>{item.title}</p>
+              <Link href={item.uri}>
+                <p>{item.title}</p>
+              </Link>
             </Grid>
           );
         })}
