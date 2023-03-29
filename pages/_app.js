@@ -6,7 +6,6 @@ import "../components/sidebar/index.css";
 import "../components/post/index.css";
 import "bootstrap/dist/css/bootstrap.css";
 import "../pages/single-post/index.css";
-import "../components/single-post/index.css";
 import "../components/just-in-posts-section/index.css";
 import "../components/learn-section/index.css";
 import "../components/trending-news-section/index.css";
