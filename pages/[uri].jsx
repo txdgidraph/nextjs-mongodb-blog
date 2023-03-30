@@ -3,8 +3,7 @@ import { client } from "../lib/apollo";
 import { gql } from "@apollo/client";
 import SideBar from "../components/sidebar";
 
-export default function SlugPage({ post }) {
-  console.log(post);
+export default function SlugPage({ post, TREND_NEWS_posts }) {
   return (
     <div>
       <Head>
@@ -16,7 +15,10 @@ export default function SlugPage({ post }) {
           href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
           rel="stylesheet"
         />
-        <meta name="description" content={post.customMetaDescription.metaDescription} />
+        <meta
+          name="description"
+          content={post.customMetaDescription.metaDescription}
+        />
         <title>{post.title}</title>
         <meta
           name="robots"
@@ -44,13 +46,16 @@ export default function SlugPage({ post }) {
         <meta property="og:image:width" content="1708" />
         <meta property="og:image:height" content="1401" />
         <meta property="og:image:alt" content={post.title} />
-        <meta property="og:image:type" content={post.featuredImage.node.mimeType} />
+        <meta
+          property="og:image:type"
+          content={post.featuredImage.node.mimeType}
+        />
       </Head>
 
       <main>
-        <div className="container-fluid uri-header">
+        <div className="container uri-header">
           <div className="row">
-            <div className="col-sm-12 col-md-9">
+            <div className="col-sm-12 col-md-8">
               <div className="uri-featuredImageCont">
                 <div className="uri-post-title">
                   <h1>{post.title}</h1>
@@ -58,7 +63,7 @@ export default function SlugPage({ post }) {
                 <div className="post-info-detail-cont">
                   <span>
                     <img
-                      src="/assets/user-one.jpeg"
+                      src="/assets/tonny-gidraph.jpeg"
                       alt=""
                       className="uri-userpost-img"
                     />
@@ -81,8 +86,8 @@ export default function SlugPage({ post }) {
                 ></article>
               </div>
             </div>
-            <div className="col-sm-12 col-md-3">
-              <SideBar />
+            <div className="col-sm-12 col-md-4">
+              <SideBar relatedPost={TREND_NEWS_posts} />
             </div>
           </div>
         </div>
@@ -92,49 +97,91 @@ export default function SlugPage({ post }) {
 }
 
 export async function getServerSideProps({ params }) {
-  const GET_POST = gql`
-    query GetPostByURI($id: ID!) {
-      post(id: $id, idType: URI) {
-        title
-        content
-        date
-        uri
-        author {
-          node {
-            firstName
-            lastName
+  try {
+    const GET_POST = gql`
+      query GetPostByURI($id: ID!) {
+        post(id: $id, idType: URI) {
+          title
+          content
+          date
+          uri
+          author {
+            node {
+              firstName
+              lastName
+            }
           }
-        }
-        featuredImage {
-          node {
-            mediaItemUrl
-            fileSize
-            mediaType
-            mimeType
-            sizes
+          featuredImage {
+            node {
+              mediaItemUrl
+              fileSize
+              mediaType
+              mimeType
+              sizes
+            }
           }
-        }
-        categories {
-          nodes {
-            name
+          categories {
+            nodes {
+              name
+            }
           }
-        }
-        customMetaDescription {
-          metaDescription
+          customMetaDescription {
+            metaDescription
+          }
         }
       }
-    }
-  `;
-  const response = await client.query({
-    query: GET_POST,
-    variables: {
-      id: params.uri,
-    },
-  });
-  const post = response?.data?.post;
-  return {
-    props: {
-      post,
-    },
-  };
+    `;
+    const response = await client.query({
+      query: GET_POST,
+      variables: {
+        id: params.uri,
+      },
+    });
+    const post = response?.data?.post;
+    const categories = post?.categories?.nodes
+      ?.map((node) => node.name)
+      .filter((name) => !name.startsWith("_"));
+    const category = categories[0];
+
+    const GET_TREND_NEWS_SEC_POSTS = gql`
+    query AllPostsQuery ($postCategory: String) {
+      posts(first: 50, where: { categoryName: $postCategory }) {
+          nodes {
+            title
+            content
+            date
+            uri
+            featuredImage {
+              node {
+                mediaItemUrl
+              }
+            }
+            categories {
+              nodes {
+                name
+              }
+            }
+          }
+        }
+      }
+    `;
+    const TREND_NEWS_response = await client.query({
+      query: GET_TREND_NEWS_SEC_POSTS,
+      variables: {
+        postCategory:category,
+      },
+    });
+    const TREND_NEWS_posts = TREND_NEWS_response?.data?.posts?.nodes;
+    return {
+      props: {
+        post,
+        TREND_NEWS_posts,
+      },
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      props: {},
+    };
+  }
 }
